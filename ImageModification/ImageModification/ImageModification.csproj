@@ -45,11 +45,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="BLL\EdgeDetection.cs" />
+    <Compile Include="BLL\FilterMatrix.cs" />
+    <Compile Include="BLL\Filters.cs" />
+    <Compile Include="BLL\IEdgeDetection.cs" />
+    <Compile Include="BLL\IFilters.cs" />
+    <Compile Include="UI\FormImageEdge.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="UI\FormImageEdge.Designer.cs">
+      <DependentUpon>FormImageEdge.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,6 +79,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="IO\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
