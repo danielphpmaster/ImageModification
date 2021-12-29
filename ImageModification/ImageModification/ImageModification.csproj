@@ -51,11 +51,11 @@
     <Compile Include="BLL\IEdgeDetection.cs" />
     <Compile Include="BLL\IFilters.cs" />
     <Compile Include="IO\InputOutput.cs" />
-    <Compile Include="UI\FormImageEdge.cs">
+    <Compile Include="UI\FormImageModification.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FormImageEdge.Designer.cs">
-      <DependentUpon>FormImageEdge.cs</DependentUpon>
+    <Compile Include="UI\FormImageModification.Designer.cs">
+      <DependentUpon>FormImageModification.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

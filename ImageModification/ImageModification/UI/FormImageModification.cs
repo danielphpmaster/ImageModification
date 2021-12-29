@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ImageModification
 {
-    public partial class FormImageEdge : Form
+    public partial class FormImageModification : Form
     {
-        public FormImageEdge()
+        public FormImageModification()
         {
             InitializeComponent();
         }

@@ -4,6 +4,7 @@ namespace ImageModification.BLL
 {
     public interface IEdgeDetection
     {
-        Bitmap filter(Bitmap bmp, string xfilter, string yfilter);
+        Bitmap filter(Bitmap bmp, double[,] FilterMatrix);
+        double[,] getFilterMatrix(string filter);
     }
 }

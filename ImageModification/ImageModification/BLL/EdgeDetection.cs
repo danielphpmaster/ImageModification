@@ -229,12 +229,12 @@ namespace ImageModification.BLL
             return FilterMatrix;
         }
 
-    /// <summary>
-    /// Apply various edge detection filters on a bitmap
-    /// </summary>
-    /// <param name="bmp">Bitmap to apply edge detection on</param>
-    /// <param name="filter">Selected edge detection filter</param>
-    /// <returns></returns>
+        /// <summary>
+        /// Apply various edge detection filters on a bitmap
+        /// </summary>
+        /// <param name="bmp">Bitmap to apply edge detection on</param>
+        /// <param name="filter">Selected edge detection filter</param>
+        /// <returns></returns>
         public Bitmap filter(Bitmap bmp, double[,] FilterMatrix)
         {
             double[,] xFilterMatrix = FilterMatrix;

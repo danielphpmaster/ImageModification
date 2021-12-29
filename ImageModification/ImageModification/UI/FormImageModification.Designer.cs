@@ -1,7 +1,7 @@
 ﻿
 namespace ImageModification
 {
-    partial class FormImageEdge
+    partial class FormImageModification
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
