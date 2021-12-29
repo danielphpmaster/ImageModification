@@ -12,6 +12,10 @@ namespace ImageModification.IO
 {
     class InputOutput
     {
+        /// <summary>
+        /// Lets the user choose a png/jpg/bmp from his windows file system
+        /// </summary>
+        /// <returns>A Bitmap selected by the user</returns>
         public Bitmap LoadImage()
         {
             Bitmap image = null;
@@ -32,7 +36,10 @@ namespace ImageModification.IO
 
             return image;
         }
-
+        /// <summary>
+        /// Lets the user save a png/jpg/bmp on his windows file system
+        /// </summary>
+        /// <param name="image">A Bitmap to be saved by the user</param>
         public void SaveImage(Bitmap image)
         {
             if (image != null)
