@@ -3,11 +3,7 @@
 namespace ImageModificationTests
 {
     [TestClass]
-    public class Filters
+    class EdgeDetectionTest
     {
-        [TestMethod]
-        public void TestMethod1()
-        {
-        }
     }
 }

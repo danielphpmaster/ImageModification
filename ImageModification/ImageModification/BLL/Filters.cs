@@ -2,6 +2,9 @@
 
 namespace ImageModification.BLL
 {
+    /// <summary>
+    /// Filters class that provides image filters
+    /// </summary>
     public class Filters : IFilters
     {
         /// <summary>

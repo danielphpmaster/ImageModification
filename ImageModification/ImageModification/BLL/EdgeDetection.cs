@@ -5,6 +5,9 @@ using System.Runtime.InteropServices;
 
 namespace ImageModification.BLL
 {
+    /// <summary>
+    /// EdgeDetection class that provides edge detection filters
+    /// </summary>
     public class EdgeDetection : IEdgeDetection
     {
         /* SEE NEW VERSION BELOW
@@ -190,7 +193,7 @@ namespace ImageModification.BLL
         /// Get the FilterMatrix used for edge detection
         /// </summary>
         /// <param name="filter">Name of the edge detection filter</param>
-        /// <returns></returns>
+        /// <returns>A filter matrix</returns>
         public double[,] getFilterMatrix(string filter)
         {
             double[,] FilterMatrix;
@@ -200,26 +203,11 @@ namespace ImageModification.BLL
                 case "Laplacian3x3":
                     FilterMatrix = BLL.FilterMatrix.Laplacian3x3;
                     break;
-                case "Laplacian5x5":
-                    FilterMatrix = BLL.FilterMatrix.Laplacian5x5;
-                    break;
-                case "Sobel3x3Horizontal":
-                    FilterMatrix = BLL.FilterMatrix.Sobel3x3Horizontal;
-                    break;
                 case "Sobel3x3Vertical":
                     FilterMatrix = BLL.FilterMatrix.Sobel3x3Vertical;
                     break;
                 case "Prewitt3x3Horizontal":
                     FilterMatrix = BLL.FilterMatrix.Prewitt3x3Horizontal;
-                    break;
-                case "Prewitt3x3Vertical":
-                    FilterMatrix = BLL.FilterMatrix.Prewitt3x3Vertical;
-                    break;
-                case "Kirsch3x3Horizontal":
-                    FilterMatrix = BLL.FilterMatrix.Kirsch3x3Horizontal;
-                    break;
-                case "Kirsch3x3Vertical":
-                    FilterMatrix = BLL.FilterMatrix.Kirsch3x3Vertical;
                     break;
                 default:
                     FilterMatrix = BLL.FilterMatrix.Laplacian3x3;
@@ -233,8 +221,8 @@ namespace ImageModification.BLL
         /// Apply various edge detection filters on a bitmap
         /// </summary>
         /// <param name="bmp">Bitmap to apply edge detection on</param>
-        /// <param name="filter">Selected edge detection filter</param>
-        /// <returns></returns>
+        /// <param name="FilterMatrix">Selected edge detection filter</param>
+        /// <returns>The result filtered image</returns>
         public Bitmap filter(Bitmap bmp, double[,] FilterMatrix)
         {
             double[,] xFilterMatrix = FilterMatrix;

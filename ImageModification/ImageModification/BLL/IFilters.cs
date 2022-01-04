@@ -2,6 +2,9 @@
 
 namespace ImageModification.BLL
 {
+    /// <summary>
+    /// Interface for Filters class
+    /// </summary>
     public interface IFilters
     {
         /// <summary>

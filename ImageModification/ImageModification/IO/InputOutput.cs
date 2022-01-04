@@ -10,7 +10,10 @@ using System.Windows.Forms;
 
 namespace ImageModification.IO
 {
-    class InputOutput
+    /// <summary>
+    /// InputOuput class that provides methods to load and save images
+    /// </summary>
+    public class InputOutput
     {
         /// <summary>
         /// Lets the user choose a png/jpg/bmp from his windows file system

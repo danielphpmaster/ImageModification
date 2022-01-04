@@ -12,22 +12,25 @@ using System.Windows.Forms;
 
 namespace ImageModification
 {
+    /// <summary>
+    /// ImageModification Winform
+    /// </summary>
     public partial class FormImageModification : Form
     {
         /// <summary>
         /// ImageFilter interface
         /// </summary>
-        IFilters imageFilter = new Filters();
+        private IFilters imageFilter = new Filters();
 
         /// <summary>
         /// EdgeDetection interface
         /// </summary>
-        IEdgeDetection edgeDetection = new EdgeDetection();
+        private IEdgeDetection edgeDetection = new EdgeDetection();
 
         /// <summary>
         /// InputOutput
         /// </summary>
-        InputOutput inputOutput = new InputOutput();
+        private InputOutput inputOutput = new InputOutput();
 
         /// <summary>
         /// Image in the picture box without any filter applied
