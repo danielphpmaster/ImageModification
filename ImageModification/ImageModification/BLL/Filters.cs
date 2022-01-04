@@ -5,14 +5,14 @@ namespace ImageModification.BLL
     public class Filters : IFilters
     {
         /// <summary>
-        /// Color filter (Miami filter: A=1, R=1, G=1, B=10)
+        /// Color image filter (Miami filter: A=1, R=1, G=1, B=10)
         /// </summary>
-        /// <param name="bmp"></param>
-        /// <param name="alpha"></param>
-        /// <param name="red"></param>
-        /// <param name="blue"></param>
-        /// <param name="green"></param>
-        /// <returns></returns>
+        /// <param name="bmp">The image that the filter will be applied to</param>
+        /// <param name="alpha">The filter value of opacity</param>
+        /// <param name="red">The filter value of red</param>
+        /// <param name="blue">The filter value of blue</param>
+        /// <param name="green">The filter value of green</param>
+        /// <returns>The result filtered image</returns>
         public Bitmap ApplyFilter(Bitmap bmp, int alpha, int red, int blue, int green)
         {
 
@@ -33,10 +33,10 @@ namespace ImageModification.BLL
         }
 
         /// <summary>
-        /// 
+        /// Black and white image filter
         /// </summary>
-        /// <param name="Bmp"></param>
-        /// <returns></returns>
+        /// <param name="Bmp">The image that the filter will be applied to</param>
+        /// <returns>The result filtered image</returns>
         public Bitmap BlackWhite(Bitmap Bmp)
         {
             int rgb;
@@ -54,10 +54,10 @@ namespace ImageModification.BLL
         }
 
         /// <summary>
-        /// 
+        /// Image filter swap
         /// </summary>
-        /// <param name="bmp"></param>
-        /// <returns></returns>
+        /// <param name="bmp">The image that the filter will be applied to</param>
+        /// <returns>The result filtered image</returns>
         public Bitmap ApplyFilterSwap(Bitmap bmp)
         {
 
