@@ -65,9 +65,47 @@
     <Compile Include="EdgeDetectionTest.cs" />
     <Compile Include="FiltersTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\penguins.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ImageModification\ImageModification\ImageModification.csproj">
+      <Project>{EB1E8D1F-2ABF-4A91-8B71-9AE232ACF3F1}</Project>
+      <Name>ImageModification</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\penguins_miamiFilter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\penguins_blackWhiteFilter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\penguins_swapFilter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\penguins_laplacian3x3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\penguins_Prewitt3x3Horizontal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\penguins_Sobel3x3Vertical.png" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
