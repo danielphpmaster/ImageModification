@@ -80,7 +80,7 @@ namespace ImageModificationTests
         }
 
         /// <summary>
-        /// Prewitt3x3Horizontal edge detection test
+        /// Default edge detection test
         /// </summary>
         [TestMethod]
         public void DefaultEdgeDetectionTest()
