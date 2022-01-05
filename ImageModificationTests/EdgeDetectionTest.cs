@@ -94,5 +94,22 @@ namespace ImageModificationTests
             comparatorBitmap.CompareBitmapPixels(edgeDetection.filter(sourceImage, edgeDetection.getFilterMatrix("")), resultImage);
 
         }
+
+        /// <summary>
+        /// Null image test
+        /// </summary>
+        [TestMethod]
+        public void ImageNullTest()
+        {
+            Bitmap filteredImage = Properties.Resources.penguins_laplacian3x3;
+
+            edgeDetection.filter(null, edgeDetection.getFilterMatrix("Laplacian3x3")).Returns(i => null);
+
+            Bitmap resultImage = edgeDetectionClass.filter(null, edgeDetectionClass.getFilterMatrix("Laplacian3x3"));
+
+            Assert.IsNull(edgeDetection.filter(null, edgeDetection.getFilterMatrix("Laplacian3x3")));
+            Assert.IsNull(resultImage);
+
+        }
     }
 }
