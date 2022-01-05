@@ -13,7 +13,7 @@ namespace ImageModification.IO
     /// <summary>
     /// InputOuput class that provides methods to load and save images
     /// </summary>
-    public class InputOutput
+    public class InputOutput : IInputOutput
     {
         /// <summary>
         /// Lets the user choose a png/jpg/bmp from his windows file system

@@ -28,9 +28,9 @@ namespace ImageModification
         private IEdgeDetection edgeDetection = new EdgeDetection();
 
         /// <summary>
-        /// InputOutput
+        /// InputOutput interface
         /// </summary>
-        private InputOutput inputOutput = new InputOutput();
+        private IInputOutput inputOutput = new InputOutput();
 
         /// <summary>
         /// Image in the picture box without any filter applied
