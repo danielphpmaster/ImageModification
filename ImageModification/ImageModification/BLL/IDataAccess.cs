@@ -1,13 +1,10 @@
-﻿using System;
+﻿using ImageModification.IO;
+using System;
 using System.Drawing;
-using System.Windows.Forms;
 
-namespace ImageModification.IO
+namespace ImageModification.BLL
 {
-    /// <summary>
-    /// Interface for the InputOutput class
-    /// </summary>
-    public interface IInputOutput
+    public interface IDataAccess
     {
         /// <summary>
         /// Lets the user choose a png/jpg/bmp from his windows file system

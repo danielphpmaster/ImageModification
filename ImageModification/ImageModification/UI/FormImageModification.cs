@@ -28,9 +28,9 @@ namespace ImageModification
         private IEdgeDetection edgeDetection = new EdgeDetection();
 
         /// <summary>
-        /// InputOutput interface
+        /// DataAccess interface from BLL
         /// </summary>
-        private IInputOutput inputOutput = new InputOutput();
+        private IDataAccess dataAccess = new DataAccess();
 
         /// <summary>
         /// Image in the picture box without any filter applied
@@ -66,8 +66,30 @@ namespace ImageModification
         private void buttonLoad_Click(object sender, EventArgs e)
         {
             labelError.Visible = false;
-            Bitmap loadedImage = inputOutput.LoadImage();
-            pictureBoxPreview.Image = loadedImage;
+
+            String imagePath = null;
+
+            OpenFileDialog ofd = new OpenFileDialog
+            {
+                Title = "Select an image file.",
+                Filter = "Png Images(*.png)|*.png"
+            };
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                imagePath = ofd.FileName;
+            }
+
+            Bitmap loadedImage = dataAccess.LoadImage(imagePath);
+
+            if (loadedImage == null)
+            {
+                labelError.Visible = true;
+                labelError.Text = "You must load a valid image.";
+            } else
+            {
+                pictureBoxPreview.Image = loadedImage;
+            }
             origin = pictureBoxPreview.Image;
         }
 
@@ -81,7 +103,23 @@ namespace ImageModification
             if (pictureBoxPreview.Image != null)
             {
                 labelError.Visible = false;
-                inputOutput.SaveImage(new Bitmap(pictureBoxPreview.Image));
+
+                String imagePath = null;
+
+                SaveFileDialog sfd = new SaveFileDialog
+                {
+                    Title = "Specify a file name and file path.",
+                    Filter = "Png Images(*.png)|*.png"
+                };
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    imagePath = sfd.FileName;
+                }
+
+                Bitmap image = new Bitmap(pictureBoxPreview.Image);
+
+                dataAccess.SaveImage(image, imagePath);
             }
             else
             {

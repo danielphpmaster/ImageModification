@@ -48,10 +48,13 @@
     <Compile Include="BLL\EdgeDetection.cs" />
     <Compile Include="BLL\FilterMatrix.cs" />
     <Compile Include="BLL\Filters.cs" />
+    <Compile Include="BLL\IDataAccess.cs" />
     <Compile Include="BLL\IEdgeDetection.cs" />
     <Compile Include="BLL\IFilters.cs" />
+    <Compile Include="BLL\DataAccess.cs" />
     <Compile Include="IO\IInputOutput.cs" />
     <Compile Include="IO\InputOutput.cs" />
+    <Compile Include="IO\InputOutputException.cs" />
     <Compile Include="UI\FormImageModification.cs">
       <SubType>Form</SubType>
     </Compile>

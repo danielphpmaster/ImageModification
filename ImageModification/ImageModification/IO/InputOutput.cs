@@ -19,60 +19,45 @@ namespace ImageModification.IO
         /// Lets the user choose a png/jpg/bmp from his windows file system
         /// </summary>
         /// <returns>A Bitmap selected by the user</returns>
-        public Bitmap LoadImage()
+        public Bitmap LoadImage(String imagePath)
         {
             Bitmap image = null;
+            StreamReader streamReader = null;
 
-            OpenFileDialog ofd = new OpenFileDialog
+            try
             {
-                Title = "Select an image file.",
-                Filter = "Png Images(*.png)|*.png|Jpeg Images(*.jpg)|*.jpg"
-            };
-            ofd.Filter += "|Bitmap Images(*.bmp)|*.bmp";
-
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                StreamReader streamReader = new StreamReader(ofd.FileName);
+                streamReader = new StreamReader(imagePath);
                 image = new Bitmap(streamReader.BaseStream);
                 streamReader.Close();
             }
-
+            catch
+            {
+                image = null;
+            }
+                        
             return image;
         }
+
         /// <summary>
         /// Lets the user save a png/jpg/bmp on his windows file system
         /// </summary>
         /// <param name="image">A Bitmap to be saved by the user</param>
-        public void SaveImage(Bitmap image)
+        public void SaveImage(Bitmap image, String imagePath)
         {
-            if (image != null)
+            if (image == null)
             {
-                SaveFileDialog sfd = new SaveFileDialog
-                {
-                    Title = "Specify a file name and file path",
-                    Filter = "Png Images(*.png)|*.png|Jpeg Images(*.jpg)|*.jpg"
-                };
-                sfd.Filter += "|Bitmap Images(*.bmp)|*.bmp";
+                throw new InputOutputException();
+            }
 
-                if (sfd.ShowDialog() == DialogResult.OK)
-                {
-                    string fileExtension = Path.GetExtension(sfd.FileName).ToUpper();
-                    ImageFormat imgFormat = ImageFormat.Png;
+            if (imagePath != null)
+            {
+                string fileExtension = Path.GetExtension(imagePath).ToUpper();
+                ImageFormat imgFormat = ImageFormat.Png;
 
-                    if (fileExtension == "BMP")
-                    {
-                        imgFormat = ImageFormat.Bmp;
-                    }
-                    else if (fileExtension == "JPG")
-                    {
-                        imgFormat = ImageFormat.Jpeg;
-                    }
-
-                    StreamWriter streamWriter = new StreamWriter(sfd.FileName, false);
-                    image.Save(streamWriter.BaseStream, imgFormat);
-                    streamWriter.Flush();
-                    streamWriter.Close();
-                }
+                StreamWriter streamWriter = new StreamWriter(imagePath, false);
+                image.Save(streamWriter.BaseStream, imgFormat);
+                streamWriter.Flush();
+                streamWriter.Close();
             }
         }
     }
