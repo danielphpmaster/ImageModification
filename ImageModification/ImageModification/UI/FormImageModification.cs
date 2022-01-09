@@ -83,6 +83,7 @@ namespace ImageModification
             else
             {
                 pictureBoxPreview.Image = loadedImage;
+                origin = pictureBoxPreview.Image;
             }
         }
 
