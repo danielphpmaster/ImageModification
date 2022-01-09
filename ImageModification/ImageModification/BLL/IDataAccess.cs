@@ -1,5 +1,4 @@
-﻿using ImageModification.IO;
-using System;
+﻿using System;
 using System.Drawing;
 
 namespace ImageModification.BLL

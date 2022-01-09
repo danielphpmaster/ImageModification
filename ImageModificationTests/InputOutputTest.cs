@@ -3,15 +3,9 @@ using ImageModification.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NSubstitute;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace ImageModificationTests
 {
@@ -29,15 +23,12 @@ namespace ImageModificationTests
         /// <summary>
         /// InputOutput interface that is substituted 
         /// </summary>
-        private IInputOutput inputOutput = Substitute.For<IInputOutput>();
+        private IDataAccess inputOutput = Substitute.For<IDataAccess>();
 
         /// <summary>
         /// InputOutput class
         /// </summary>
-        private InputOutput inputOutputClass = new InputOutput();
-
-
-        private IDataAccess dataAccess = Substitute.For<IDataAccess>();
+        private DataAccess inputOutputClass = new DataAccess();
 
         /// <summary>
         /// Load image test
@@ -83,13 +74,14 @@ namespace ImageModificationTests
 
             String imagePathSubstitute = @"..\..\Resources\saveImageTestSubstitute.png";
             String imagePath = @"..\..\Resources\saveImageTest.png";
-            
+
             // https://nsubstitute.github.io/help/callbacks/
             // https://nsubstitute.github.io/help/return-from-function/
             inputOutput.When(
                 call => call.SaveImage(saveImage, imagePathSubstitute)
             ).Do(
-                x => {
+                x =>
+                {
                     StreamWriter streamWriter = new StreamWriter(x.Arg<String>(), false);
                     x.Arg<Bitmap>().Save(streamWriter.BaseStream, ImageFormat.Png);
                     streamWriter.Flush();
@@ -100,7 +92,7 @@ namespace ImageModificationTests
             inputOutput.SaveImage(saveImage, imagePathSubstitute);
             inputOutputClass.SaveImage(saveImage, imagePath);
 
-            Bitmap substituteImage = new Bitmap(@imagePathSubstitute);
+            Bitmap substituteImage = new Bitmap(imagePathSubstitute);
             Bitmap resultImage = new Bitmap(imagePath);
 
             comparatorBitmap.CompareBitmapPixels(substituteImage, resultImage);

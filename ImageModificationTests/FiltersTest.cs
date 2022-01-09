@@ -38,7 +38,7 @@ namespace ImageModificationTests
         public void MiamiFilterTest()
         {
             Bitmap filteredImage = Properties.Resources.penguins_miamiFilter;
-            
+
             filter.ApplyFilter(sourceImage, 1, 1, 10, 1).Returns(filteredImage);
 
             Bitmap resultImage = filterClass.ApplyFilter(sourceImage, 1, 1, 10, 1);

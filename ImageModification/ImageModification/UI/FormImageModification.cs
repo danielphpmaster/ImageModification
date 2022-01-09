@@ -1,13 +1,6 @@
 ﻿using ImageModification.BLL;
-using ImageModification.IO;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ImageModification
@@ -86,11 +79,11 @@ namespace ImageModification
             {
                 labelError.Visible = true;
                 labelError.Text = "You must load a valid image.";
-            } else
+            }
+            else
             {
                 pictureBoxPreview.Image = loadedImage;
             }
-            origin = pictureBoxPreview.Image;
         }
 
         /// <summary>
@@ -145,18 +138,18 @@ namespace ImageModification
         /// <param name="e">The event</param>
         private void buttonBlackWhiteFilter_Click(object sender, EventArgs e)
         {
-            if(pictureBoxPreview.Image != null) 
+            if (pictureBoxPreview.Image != null)
             {
                 labelError.Visible = false;
                 Bitmap filteredImage = imageFilter.BlackWhite(new Bitmap(pictureBoxPreview.Image));
                 pictureBoxPreview.Image = filteredImage;
-            } 
+            }
             else
             {
                 labelError.Visible = true;
                 labelError.Text = "You must load an image first";
             }
-            
+
         }
 
         /// <summary>
@@ -187,7 +180,7 @@ namespace ImageModification
         private void buttonSwapFilter_Click(object sender, EventArgs e)
         {
             if (pictureBoxPreview.Image != null)
-            {   
+            {
                 labelError.Visible = false;
                 Bitmap filteredImage = imageFilter.ApplyFilterSwap(new Bitmap(pictureBoxPreview.Image));
                 pictureBoxPreview.Image = filteredImage;
